@@ -22,7 +22,7 @@ const server = http.createServer(app);
 // Socket.io
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL || 'http://localhost:5173',
+        origin: process.env.CLIENT_URL || ${CLIENT_URL},
         methods: ['GET', 'POST']
     }
 });
@@ -33,7 +33,7 @@ app.set('io', io);
 // ─── Middleware ──────────────────────────────────────
 app.use(helmet());
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: process.env.CLIENT_URL || ${CLIENT_URL},
     credentials: true
 }));
 app.use(morgan('dev'));
@@ -59,7 +59,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // ─── Start Server ───────────────────────────────────
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || ${PORT};
 
 async function start() {
     try {

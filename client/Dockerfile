@@ -1,4 +1,6 @@
-# Stage 1: Compile the React application
+
+
+# Stage 1: Building phase
 FROM node:20-alpine AS builder
 WORKDIR /app
 
@@ -10,7 +12,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve compiled files using lightweight Nginx
+# Stage 2: Runner Phase
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 

@@ -1,3 +1,6 @@
+# Multi-stage build to separate build dependencies from minimal production runtime
+# Uses alpine base image to keep final footprint under 250MB. With basic image it was 1.7gb
+
 # Stage 1: Builder phase for downlaoding dependencies
 FROM node:20-alpine AS builder
 WORKDIR /app

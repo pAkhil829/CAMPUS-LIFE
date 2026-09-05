@@ -2,12 +2,12 @@ const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME || 'campus360',
-  process.env.DB_USER || 'postgres',
-  process.env.DB_PASSWORD || 'password',
+  process.env.DB_NAME || ${DB_NAME},
+  process.env.DB_USER || ${DB_USER},
+  process.env.DB_PASSWORD || ${DB_PASSWORD},
   {
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
+    host: process.env.DB_HOST || ${DB_HOST},
+    port: process.env.DB_PORT || ${DB_PORT},
     dialect: 'postgres',
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     pool: {
